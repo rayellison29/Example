@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Movies Display";
+}
+   
+
+<h1 class="display-4">Movies Display</h1>
+@model List<Movie>
+<div class="text-center">
+    <h1 class="display-4">My Movies</h1>
+   <br />
+    <a asp-action="ViewMovies" class="btn btn-primary">My Movies</a>
+    <a asp-action="CreateEditMovie" class="btn btn-primary">Create/Update</a>
+    <br/>
+    <br />
+    <hr />
+   
+    <table class=" table">
+        <thead>
+            <tr>
+                <th>Movie Id</th>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Lead Stars</th>
+                <th>Action< /th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(var movie in Model)
+                {
+                    <tr>
+                        <td>
+                            @movie.Id
+                        </td>
+                        <td>
+                            @movie.Title
+                        </td>
+                        <td>
+                            @movie.Genre
+                        </td>
+                        <td>
+                            @movie.LeadStars
+                        </td>
+                        <td>
+                            <a asp-action="CreateEditMovie" asp-route-id="@movie.Id">Edit</a>
+                            <a asp-action="DeleteMovie" asp-route-id="@movie.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>

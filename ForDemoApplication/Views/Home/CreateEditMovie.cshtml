@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Create Edit Movie";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Create or Edit </h1>
+   
+    @model ForDemoApplication.Models.Movie
+    <form asp-action="ViewMoviesForm" asp-controller="Home">
+       
+        <input hidden class="form-control" type="number" placeholder="0" asp-for="Id"/>
+
+        <label class="mt-4">Title</label>
+        <input class="form-control" type="text" placeholder="" asp-for="Title" />
+        <label class="mt-4">Genre</label>
+        <input class="form-control" type="text" placeholder="" asp-for="Genre" />
+        <label class="mt-4">Lead Stars</label>
+        <input class="form-control" type="text" placeholder="" asp-for="LeadStars" />
+        <button class="btn btn-primary mt-4" type="submit">Submit</button>
+    </form>
+</div>
